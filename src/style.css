@@ -15,14 +15,14 @@ ul {
 }
 
 input.city-search {
-  width: 300px;
+  width: 350px;
 }
 input.search-button {
-  width: 120px;
+  width: 130px;
 }
 input.city-search,
 input.search-button {
-  margin: 10px 20px;
+  margin: 20px 20px;
   font-size: 12px;
 }
 
@@ -65,7 +65,7 @@ footer {
   padding: 5px;
 }
 .forecast-days {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 .forecast-days li {
   border-left: 1px solid rgb(212, 202, 202);

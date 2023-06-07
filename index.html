@@ -8,6 +8,7 @@
   <title>Vanilla Weather App</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   <link rel="stylesheet" href="src/style.css">
 </head>
 
@@ -19,13 +20,13 @@
           <form>
             <label for="city-input"></label>
             <input type="text" placeholder="Type a city..." class="city-search" name="city-search" id="city-search">
-            <input type="submit" value="Check the weather" class="search-button">
+            <input type="submit" value="search" class="search-button">
           </form>
         </div>
       </div>
       <div class="main-app row">
         <div class="col-8">
-          <h1 class="city">Madrid</h1>
+          <h1 class="city" id="city">Madrid</h1>
           <p class="date">Wednesday, 31st of May</p>
           <h2><span class="temperature">24</span><span class="centigrades">ºC</span><span class="fahrenheit"> |
               ºF</span><span class="condition-img"> ⛅ </span> <span class="condition-txt"> Partly
