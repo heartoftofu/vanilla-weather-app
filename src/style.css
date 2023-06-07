@@ -1,3 +1,69 @@
 h1 {
-  color: blueviolet;
+  color: rgb(0, 0, 0);
+  margin: 1rem auto 0;
+  font-size: 60px;
+}
+
+h2 {
+  margin: 1.2rem auto;
+  font-size: 35px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+input.city-search {
+  width: 300px;
+}
+input.search-button {
+  width: 120px;
+}
+input.city-search,
+input.search-button {
+  margin: 10px 20px;
+  font-size: 12px;
+}
+
+footer {
+  margin-top: -20px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+.weather-app {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 40px;
+  border: 1px solid rgb(212, 202, 202);
+  border-radius: 10px;
+}
+.date {
+  margin: 0 auto 0 5px;
+  font-size: 15px;
+}
+
+.col-12 {
+  text-align: center;
+}
+
+.temperature {
+  font-size: 45px;
+}
+
+.centigrades,
+.fahrenheit {
+  font-size: 15px;
+  position: relative;
+  top: -18px;
+}
+
+.info {
+  font-size: 20px;
+}
+.info li {
+  padding: 5px;
+}
+.forecast-days li {
+  padding: 10px;
 }

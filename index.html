@@ -15,11 +15,11 @@
   <div class="container">
     <div class="weather-app">
       <div class="search-form row">
-        <div class="col-8">
+        <div class="col-12">
           <form>
-            <label for="city-input" value="Search a city..."></label>
-            <input type="text" name="city-search" id="city-search">
-            <input type="submit" value="search">
+            <label for="city-input"></label>
+            <input type="text" placeholder="Type a city..." class="city-search" name="city-search" id="city-search">
+            <input type="submit" value="Check the weather" class="search-button">
           </form>
         </div>
       </div>
@@ -27,8 +27,9 @@
         <div class="col-8">
           <h1 class="city">Madrid</h1>
           <p class="date">Wednesday, 31st of May</p>
-          <h2 class="temperature">24ºC<span class="conversion"> |ºF </span><span class="condition-img"> ⛅ </span> <span
-              class="condition-txt"> Partly cloudy</span></h2>
+          <h2><span class="temperature">24</span><span class="centigrades">ºC</span><span class="fahrenheit"> |
+              ºF</span><span class="condition-img"> ⛅ </span> <span class="condition-txt"> Partly
+              cloudy</span></h2>
           <ul class="info">
             <li>Wind speed: 9km/h</li>
             <li>Humidity: 83%</li>
@@ -46,9 +47,9 @@
           </ul>
         </div>
       </div>
-      <footer>Open-source code by Maria del Mar Amate - <a href="https://github.com/heartoftofu"
-          target="_blank">@heartoftofu</a></footer>
     </div>
+    <footer>Open-source code by Maria del Mar Amate - <a href="https://github.com/heartoftofu"
+        target="_blank">@heartoftofu</a></footer>
   </div>
   <script src="src/app.js"></script>
 </body>
