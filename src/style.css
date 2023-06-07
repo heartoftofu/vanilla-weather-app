@@ -27,13 +27,13 @@ input.search-button {
 }
 
 footer {
-  margin-top: -20px;
-  margin-left: 10px;
+  margin: 0px auto 40px;
+  max-width: 800px;
   font-size: 12px;
 }
 .weather-app {
   max-width: 800px;
-  margin: 30px auto;
+  margin: 30px auto 0px;
   padding: 40px;
   border: 1px solid rgb(212, 202, 202);
   border-radius: 10px;
@@ -64,6 +64,10 @@ footer {
 .info li {
   padding: 5px;
 }
+.forecast-days {
+  padding-top: 20px;
+}
 .forecast-days li {
+  border-left: 1px solid rgb(212, 202, 202);
   padding: 10px;
 }
