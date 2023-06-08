@@ -1,8 +1,55 @@
+function localDateAndTime(unixTime) {
+  let date = new Date(unixTime);
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let dayOfTheWeek = weekdays[date.getDay()];
+  let dayOfTheMonth = date.getDate();
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let currentMonth = months[date.getMonth()];
+
+  return `${dayOfTheWeek}, ${dayOfTheMonth} of ${currentMonth} - ${hours}:${minutes}h`;
+}
+
 function displayToday(response) {
   let cityDisplayed = document.querySelector("#city");
   cityDisplayed.innerHTML = response.data.name;
 
-  //date and time goes here
+  let dateAndTime = document.querySelector("#date-and-time");
+  dateAndTime.innerHTML = localDateAndTime(1000 * response.data.dt);
 
   let temperatureToday = document.querySelector("#temperature-today");
   temperatureToday.innerHTML = Math.round(response.data.main.temp);
@@ -25,25 +72,8 @@ function displayToday(response) {
 }
 
 let apiKey = "bbd1db320ae920fe369bb8780e0dda6d";
-let cityName = "Toledo";
+let cityName = "Madrid";
 let units = "metric";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 
 axios.get(apiUrl).then(displayToday);
-
-/*LEAVING TIME AND DATE FOR LATER. FIX TIME AND DATE FORMATS AND FIGURE LOOPS OUT FOR WEEKDAYS
-
-function localDateAndTime() {
-  let weekdays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let dateAndTime = document.querySelector("#date-and-time");
-  dateAndTime.innerHTML = new Date(1000 * response.data.dt);
-}
-*/
