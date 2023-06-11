@@ -1,3 +1,35 @@
+function sunriseTime(rise) {
+  let date = new Date(rise);
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `Sunrise: ${hours}:${minutes}h | `;
+}
+
+function sunsetTime(set) {
+  let date = new Date(set);
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `Sunset: ${hours}:${minutes}h`;
+}
+
 function localDateAndTime(unixTime) {
   let date = new Date(unixTime);
 
@@ -65,10 +97,12 @@ function displayToday(response) {
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
 
-  //let sunrise = document.querySelector("#sunrise");
-  //let sunset = document.querySelector("sunset");
-
   console.log(response.data);
+
+  let sunrise = document.querySelector("#sunrise");
+  sunrise.innerHTML = sunriseTime(1000 * response.data.sys.sunrise);
+  let sunset = document.querySelector("#sunset");
+  sunset.innerHTML = sunsetTime(1000 * response.data.sys.sunset);
 }
 
 let apiKey = "bbd1db320ae920fe369bb8780e0dda6d";
