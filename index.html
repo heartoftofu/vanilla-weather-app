@@ -15,15 +15,17 @@
 <body>
   <div class="container">
     <div class="weather-app">
-      <div class="search-form row">
-        <div class="col-12">
-          <form>
-            <label for="city-search"></label>
-            <input type="text" placeholder="Type a city..." class="city-search" name="city-search" id="city-search">
-            <input type="submit" value="Check the weather" class="search-button">
-          </form>
+      <form id="search-form" class="search-form ">
+        <div class="row">
+          <div class="col-8">
+            <input type="search" placeholder="Type a city..." class="city-search form-control" name="city-search"
+              id="city-search">
+          </div>
+          <div class="col-4">
+            <input type="submit" value="Check the weather" class="btn btn-outline-secondary search-button">
+          </div>
         </div>
-      </div>
+      </form>
       <div class="main-app row">
         <div class="col-8">
           <h1 class="city" id="city">Madrid</h1>

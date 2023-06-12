@@ -8,26 +8,21 @@ h2 {
   margin: 1.2rem auto;
   font-size: 35px;
 }
-.current-icon {
-  margin: -25px -10px -10px;
-}
 
 ul {
   list-style-type: none;
   padding-left: 0px;
 }
 
-input.city-search {
-  width: 350px;
-}
-input.search-button {
-  width: 130px;
-}
-input.city-search,
+/*input.city-search {
+  max-width: 400px;
+}*/
+
+/*input.city-search,
 input.search-button {
   margin: 20px 20px;
   font-size: 12px;
-}
+}*/
 
 footer {
   margin: 0px auto 40px;
@@ -46,14 +41,17 @@ footer {
   font-size: 15px;
 }
 
-.col-12 {
+/*.col-12 {
   text-align: center;
-}
+}*/
 
 .temperature-today {
   font-size: 45px;
 }
 
+.current-icon {
+  margin: -25px -10px -10px;
+}
 .centigrades,
 .fahrenheit {
   font-size: 15px;
