@@ -103,17 +103,25 @@ function displayToday(response) {
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
 
-  console.log(response.data);
-
   let sunrise = document.querySelector("#sunrise");
   sunrise.innerHTML = sunriseTime(1000 * response.data.sys.sunrise);
   let sunset = document.querySelector("#sunset");
   sunset.innerHTML = sunsetTime(1000 * response.data.sys.sunset);
 }
 
-let apiKey = "bbd1db320ae920fe369bb8780e0dda6d";
-let cityName = "Madrid";
-let units = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
+function searchCity(cityName) {
+  let apiKey = "bbd1db320ae920fe369bb8780e0dda6d";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 
-axios.get(apiUrl).then(displayToday);
+  axios.get(apiUrl).then(displayToday);
+}
+
+function submitInfo(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  searchCity(cityInput.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submitInfo);

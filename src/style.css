@@ -14,15 +14,10 @@ ul {
   padding-left: 0px;
 }
 
-/*input.city-search {
-  max-width: 400px;
-}*/
-
-/*input.city-search,
+input.city-search,
 input.search-button {
-  margin: 20px 20px;
   font-size: 12px;
-}*/
+}
 
 footer {
   margin: 0px auto 40px;
@@ -40,10 +35,6 @@ footer {
   margin: 0 auto 0 5px;
   font-size: 15px;
 }
-
-/*.col-12 {
-  text-align: center;
-}*/
 
 .temperature-today {
   font-size: 45px;
@@ -74,4 +65,7 @@ footer {
 }
 .condition-txt {
   text-transform: capitalize;
+}
+.col-4 {
+  text-align: center;
 }
