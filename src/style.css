@@ -8,6 +8,9 @@ h2 {
   margin: 1.2rem auto;
   font-size: 35px;
 }
+.current-icon {
+  margin: -25px -10px -10px;
+}
 
 ul {
   list-style-type: none;

@@ -83,6 +83,12 @@ function displayToday(response) {
   let dateAndTime = document.querySelector("#date-and-time");
   dateAndTime.innerHTML = localDateAndTime(1000 * response.data.dt);
 
+  let currentIcon = document.querySelector("#current-icon");
+  currentIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
   let temperatureToday = document.querySelector("#temperature-today");
   temperatureToday.innerHTML = Math.round(response.data.main.temp);
 
