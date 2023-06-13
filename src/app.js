@@ -96,21 +96,32 @@ function displayToday(response) {
   let weatherCondition = document.querySelector("#condition-txt");
   weatherCondition.innerHTML = response.data.weather[0].description;
 
+  let highToday = document.querySelector("#high");
+  highToday.innerHTML = `High: ${Math.round(response.data.main.temp_max)}ºC | `;
+
+  let lowToday = document.querySelector("#low");
+  lowToday.innerHTML = `Low: ${Math.round(response.data.main.temp_min)}ºC`;
+
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = `Wind speed: ${Math.round(
     "3.6" * response.data.wind.speed
-  )}Km/h`;
+  )}km/h`;
 
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
 
   let sunrise = document.querySelector("#sunrise");
   sunrise.innerHTML = sunriseTime(1000 * response.data.sys.sunrise);
+
   let sunset = document.querySelector("#sunset");
   sunset.innerHTML = sunsetTime(1000 * response.data.sys.sunset);
 
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = Math.round(response.data.main.temp);
   kilometersHour = Math.round("3.6" * response.data.wind.speed);
+  highCelsius = Math.round(response.data.main.temp_max);
+  lowCelsius = Math.round(response.data.main.temp_min);
+
+  console.log(response.data);
 }
 
 function searchCity(cityName) {
@@ -139,6 +150,32 @@ function displayImperial(event) {
 
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = `Wind speed: ${Math.round(kilometersHour / 1.609)}mph`;
+
+  let highFarenheit = document.querySelector("#high");
+  highFarenheit.innerHTML = `High: ${Math.round(
+    (highCelsius * 9) / 5 + 32
+  )}ºF | `;
+
+  let lowFahrenheit = document.querySelector("#low");
+  lowFahrenheit.innerHTML = `Low: ${Math.round((lowCelsius * 9) / 5 + 32)}ºF`;
+}
+function displayMetric(event) {
+  event.preventDefault();
+
+  let temperatureToday = document.querySelector("#temperature-today");
+  temperatureToday.innerHTML = celsiusTemperature;
+
+  let degreesCelsius = document.querySelector("#degrees");
+  degreesCelsius.innerHTML = `ºC`;
+
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = `Wind speed: ${kilometersHour}km/h`;
+
+  let highCelsiusDisplay = document.querySelector("#high");
+  highCelsiusDisplay.innerHTML = `High: ${Math.round(highCelsius)}ºC | `;
+
+  let lowCelsiusDisplay = document.querySelector("#low");
+  lowCelsiusDisplay.innerHTML = `High: ${Math.round(lowCelsius)}ºC`;
 }
 
 let form = document.querySelector("#search-form");
@@ -146,8 +183,13 @@ form.addEventListener("submit", submitInfo);
 
 let celsiusTemperature = null;
 let kilometersHour = null;
+let highCelsius = null;
+let lowCelsius = null;
 
 let selectImperial = document.querySelector("#imperial");
 selectImperial.addEventListener("click", displayImperial);
+
+let selectMetric = document.querySelector("#metric");
+selectMetric.addEventListener("click", displayMetric);
 
 searchCity("Madrid");
