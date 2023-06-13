@@ -9,6 +9,11 @@ h2 {
   font-size: 35px;
 }
 
+h6 {
+  font-size: 10px;
+  text-align: right;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0px;
@@ -43,8 +48,7 @@ footer {
 .current-icon {
   margin: -25px -10px -10px;
 }
-.centigrades,
-.fahrenheit {
+.degrees {
   font-size: 15px;
   position: relative;
   top: -18px;

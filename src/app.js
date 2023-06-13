@@ -88,6 +88,7 @@ function displayToday(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  currentIcon.setAttribute("alt", response.data.weather[0].description);
 
   let temperatureToday = document.querySelector("#temperature-today");
   temperatureToday.innerHTML = Math.round(response.data.main.temp);
@@ -107,6 +108,9 @@ function displayToday(response) {
   sunrise.innerHTML = sunriseTime(1000 * response.data.sys.sunrise);
   let sunset = document.querySelector("#sunset");
   sunset.innerHTML = sunsetTime(1000 * response.data.sys.sunset);
+
+  celsiusTemperature = response.data.main.temp;
+  kilometersHour = Math.round("3.6" * response.data.wind.speed);
 }
 
 function searchCity(cityName) {
@@ -123,5 +127,27 @@ function submitInfo(event) {
   searchCity(cityInput.value);
 }
 
+function displayImperial(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+
+  let temperatureToday = document.querySelector("#temperature-today");
+  temperatureToday.innerHTML = Math.round(fahrenheitTemperature);
+
+  let degreesFarenheit = document.querySelector("#degrees");
+  degreesFarenheit.innerHTML = `ºF`;
+
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = `Wind speed: ${Math.round(kilometersHour / 1.609)}mph`;
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitInfo);
+
+let celsiusTemperature = null;
+let kilometersHour = null;
+
+let selectImperial = document.querySelector("#imperial");
+selectImperial.addEventListener("click", displayImperial);
+
+searchCity("Madrid");
