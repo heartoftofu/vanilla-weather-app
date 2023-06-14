@@ -1,3 +1,7 @@
+body {
+  color: rgb(70, 70, 70);
+}
+
 h1 {
   color: rgb(0, 0, 0);
   margin: 1rem auto 0;
@@ -72,4 +76,12 @@ footer {
 }
 .col-4 {
   text-align: center;
+}
+
+.conversion a {
+  text-decoration: none;
+}
+.conversion .active {
+  color: rgb(0, 0, 0);
+  cursor: default;
 }

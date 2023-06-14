@@ -158,6 +158,9 @@ function displayImperial(event) {
 
   let lowFahrenheit = document.querySelector("#low");
   lowFahrenheit.innerHTML = `Low: ${Math.round((lowCelsius * 9) / 5 + 32)}ºF`;
+
+  selectMetric.classList.remove("active");
+  selectImperial.classList.add("active");
 }
 function displayMetric(event) {
   event.preventDefault();
@@ -176,6 +179,9 @@ function displayMetric(event) {
 
   let lowCelsiusDisplay = document.querySelector("#low");
   lowCelsiusDisplay.innerHTML = `High: ${Math.round(lowCelsius)}ºC`;
+
+  selectMetric.classList.add("active");
+  selectImperial.classList.remove("active");
 }
 
 let form = document.querySelector("#search-form");
