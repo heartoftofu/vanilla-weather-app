@@ -75,6 +75,17 @@ function localDateAndTime(unixTime) {
 
   return `${dayOfTheWeek}, ${dayOfTheMonth} of ${currentMonth} - ${hours}:${minutes}h`;
 }
+function displayForecast(response) {
+  console.log(response.data);
+}
+
+function searchForecast(lat, lon) {
+  let apiKey = "2d96d64425dca1d6eda00d942a281c0d";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayToday(response) {
   let cityDisplayed = document.querySelector("#city");
@@ -121,7 +132,9 @@ function displayToday(response) {
   highCelsius = Math.round(response.data.main.temp_max);
   lowCelsius = Math.round(response.data.main.temp_min);
 
-  console.log(response.data);
+  let latitude = response.data.coord.lat;
+  let longitude = response.data.coord.lon;
+  searchForecast(latitude, longitude);
 }
 
 function searchCity(cityName) {
@@ -162,6 +175,7 @@ function displayImperial(event) {
   selectMetric.classList.remove("active");
   selectImperial.classList.add("active");
 }
+
 function displayMetric(event) {
   event.preventDefault();
 

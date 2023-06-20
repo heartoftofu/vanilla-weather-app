@@ -52,6 +52,9 @@ footer {
 .current-icon {
   margin: -25px -10px -10px;
 }
+.forecast-icon {
+  width: 40px;
+}
 .degrees {
   font-size: 15px;
   position: relative;
@@ -65,12 +68,13 @@ footer {
   padding: 5px;
 }
 .forecast-days {
-  padding-top: 30px;
+  margin: 20px 0;
 }
 .forecast-days li {
   border-left: 1px solid rgb(212, 202, 202);
-  padding: 10px;
+  padding: 5px;
 }
+
 .condition-txt {
   text-transform: capitalize;
 }
