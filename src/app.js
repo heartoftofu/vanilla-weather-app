@@ -111,9 +111,11 @@ function displayForecast(response) {
         }" id="forecast-icon" class="forecast-icon"><span>${forecastDateAndTime(
           forecastWeekday.dt
         )}</span>
-    <div class="forecast-temperature">H:${Math.round(
+    <div class="forecast-temperature"><span id="high-forecast">H:${Math.round(
       forecastWeekday.temp.max
-    )}ºC | L:${Math.round(forecastWeekday.temp.min)}ºC</div></li>`;
+    )}ºC | </span><span id="low-forecast">L:${Math.round(
+          forecastWeekday.temp.min
+        )}ºC</span></div></li>`;
     }
   });
 
@@ -193,7 +195,7 @@ function submitInfo(event) {
   let cityInput = document.querySelector("#city-input");
   searchCity(cityInput.value);
 }
-
+/*
 function displayImperial(event) {
   event.preventDefault();
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
@@ -240,11 +242,11 @@ function displayMetric(event) {
   selectMetric.classList.add("active");
   selectImperial.classList.remove("active");
 }
-
+*/
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitInfo);
 
-let celsiusTemperature = null;
+/*let celsiusTemperature = null;
 let kilometersHour = null;
 let highCelsius = null;
 let lowCelsius = null;
@@ -253,6 +255,6 @@ let selectImperial = document.querySelector("#imperial");
 selectImperial.addEventListener("click", displayImperial);
 
 let selectMetric = document.querySelector("#metric");
-selectMetric.addEventListener("click", displayMetric);
+selectMetric.addEventListener("click", displayMetric);*/
 
 searchCity("Madrid");
