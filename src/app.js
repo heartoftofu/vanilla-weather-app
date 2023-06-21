@@ -75,8 +75,50 @@ function localDateAndTime(unixTime) {
 
   return `${dayOfTheWeek}, ${dayOfTheMonth} of ${currentMonth} - ${hours}:${minutes}h`;
 }
+
+function forecastDateAndTime(dateDT) {
+  let date = new Date(dateDT * 1000);
+  let weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = date.getDay(weekdays);
+
+  return weekdays[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
+
+  let forecastHTML = "";
+
+  forecast.forEach(function (forecastWeekday, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+  <li class="forecast-day" id="forecast-day"><img src="https://openweathermap.org/img/wn/${
+    forecastWeekday.weather[0].icon
+  }@2x.png" alt="${
+          forecastWeekday.weather[0].description
+        }" id="forecast-icon" class="forecast-icon"><span>${forecastDateAndTime(
+          forecastWeekday.dt
+        )}</span>
+    <div class="forecast-temperature">H:${Math.round(
+      forecastWeekday.temp.max
+    )}ºC | L:${Math.round(forecastWeekday.temp.min)}ºC</div></li>`;
+    }
+  });
+
+  let forecastDay = document.querySelector("#forecast-day");
+
+  forecastDay.innerHTML = forecastHTML;
 }
 
 function searchForecast(lat, lon) {

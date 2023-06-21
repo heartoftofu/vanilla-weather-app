@@ -67,10 +67,10 @@ footer {
 .info li {
   padding: 5px;
 }
-.forecast-days {
-  margin: 20px 0;
-}
 .forecast-days li {
+  margin: 10px 0;
+}
+.forecast-days {
   border-left: 1px solid rgb(212, 202, 202);
   padding: 5px;
 }
