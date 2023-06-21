@@ -1,9 +1,11 @@
 body {
-  color: rgb(70, 70, 70);
+  background-color: rgb(80, 80, 80);
+  color: rgb(190, 190, 190);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 h1 {
-  color: rgb(0, 0, 0);
+  color: rgb(250, 250, 250);
   margin: 1rem auto 0;
   font-size: 60px;
 }
@@ -39,6 +41,8 @@ footer {
   padding: 40px;
   border: 1px solid rgb(212, 202, 202);
   border-radius: 10px;
+  box-shadow: 5px 5px 30px 5px rgba(255, 255, 255, 0.199);
+  background: radial-gradient(circle, rgb(80, 80, 80) 9%, rgb(70, 70, 70) 100%);
 }
 .date-and-time {
   margin: 0 auto 0 5px;
@@ -88,4 +92,10 @@ footer {
 .conversion .active {
   color: rgb(0, 0, 0);
   cursor: default;
+}
+
+.profile {
+  color: rgb(250, 250, 250);
+  text-decoration: none;
+  font-weight: 400;
 }
