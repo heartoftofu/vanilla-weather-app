@@ -94,12 +94,13 @@ function forecastDateAndTime(dateDT) {
 }
 
 function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
 
   let forecastHTML = "";
 
   forecast.forEach(function (forecastWeekday, index) {
-    if (index < 5) {
+    if (index >= 1 && index < 6) {
       forecastHTML =
         forecastHTML +
         `
@@ -234,7 +235,7 @@ function displayMetric(event) {
   highCelsiusDisplay.innerHTML = `High: ${Math.round(highCelsius)}ºC | `;
 
   let lowCelsiusDisplay = document.querySelector("#low");
-  lowCelsiusDisplay.innerHTML = `High: ${Math.round(lowCelsius)}ºC`;
+  lowCelsiusDisplay.innerHTML = `Low: ${Math.round(lowCelsius)}ºC`;
 
   selectMetric.classList.add("active");
   selectImperial.classList.remove("active");
